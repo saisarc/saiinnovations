@@ -5,66 +5,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sai Innovations Inc.</title>
-    <link rel="icon" href="si.png">
+    <link rel="icon" href="saiinnovationsinc.png">
 </head>
 <style>
     body {
-        font-family: 'Poppins', sans-serif;
-        background-color: #030200;
-        color: #fff;
-        height: 100vh;
-        /* Add background image */
-        background-image: url(si.png);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+    font-family: 'Poppins', sans-serif;
+    background-color: #030200;
+    color: #fff;
+    height: 100vh;
+    /* Add background image */
+    background-image: url(saiinnovationsinc.png);
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .countdown-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        color: white;
-    }
+.countdown-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: white;
+}
 
-    /* Style the countdown text */
-    h1 {
-        /* Gradient text effect */
-        background: linear-gradient(to right, #000000, #ffffff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-transform: uppercase;
-        text-align: center;
-        font-weight: 700;
-        font-size: 3rem;
-        letter-spacing: 0.5rem;
-        margin-bottom: 1rem;
-        margin-left: 1rem;
-    }
+/* Style the countdown text */
+h1 {
+    /* Gradient text effect */
+    background: linear-gradient(to right, #000000, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    font-size: 3rem;
+    letter-spacing: 0.5rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
 
-    /* Style countdown elements */
-    .countdown {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        gap: 4rem;
-        margin-left: 2rem;
-    }
+/* Style countdown elements */
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 4rem;
+    margin-left: 2rem;
+}
 
-    .countdown h2 {
-        /* Gradient text effect */
-        font-size: 2rem;
-        background: linear-gradient(to right, #fafafa, #000000fb);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+.countdown h2 {
+    /* Gradient text effect */
+    font-size: 2rem;
+    background: linear-gradient(to right, #fafafa, #000000fb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 </style>
 
 <body>
-
+   
     <div class="countdown-container">
         <h1>coming soon!</h1>
         <div class="countdown">
@@ -90,31 +91,36 @@
             </div>
         </div>
     </div>
-
+    
 
 </body>
 
 <script>
-    import time
+    // Set the date we're counting down to
+var countDownDate = new Date("Aug 27, 2024 15:37:25").getTime();
 
-# Set the date we're counting down to
-    countdown_date = time.mktime(time.strptime("Aug 27, 2024 15:37:25", "%b %d, %Y %H:%M:%S"))
+// Update the count down every 1 second
+var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
 
-    while True:
-        now = time.time()
-    distance = countdown_date - now
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    if distance < 0:
-        print("EXPIRED")
-    break
+    // Display the result
+    document.querySelector(".day").textContent = days;
+    document.querySelector(".hour").textContent = hours;
+    document.querySelector(".minute").textContent = minutes;
+    document.querySelector(".second").textContent = seconds;
 
-    days, remainder = divmod(distance, 60 * 60 * 24)
-    hours, remainder = divmod(remainder, 60 * 60)
-    minutes, seconds = divmod(remainder, 60)
-
-    print(f"{int(days)} days, {int(hours)} hours, {int(minutes)} minutes, {int(seconds)} seconds left.")
-    time.sleep(1)
-
+    // If the count down is finished, show "EXPIRED"
+    if (distance < 0) {
+        clearInterval(x);
+        document.querySelector(".countdown").innerHTML = "EXPIRED";
+    }
+}, 1000);
 
 </script>
 
