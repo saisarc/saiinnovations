@@ -63,14 +63,14 @@
     }
 
     footer {
-            background-color: rgba(255, 255, 255, 0.4); /* Change the color and opacity as needed */
+            background-color: rgba(255, 255, 255, 0.247); /* Change the color and opacity as needed */
             padding: 20px;
             text-align: center;
         }
 
         /* Add hover effect to increase opacity when hovering over the footer */
         footer:hover {
-            background-color: rgb(0, 44, 187); /* Change the hover color and opacity */
+            background-color: rgba(243, 243, 243, 0.856); /* Change the hover color and opacity */
         }
 
 </style>
@@ -78,7 +78,7 @@
 <body>
 
     <div class="countdown-container">
-        <h1>Sai Innovation Inc.</h1>
+        <h1>Sai Innovations Inc.</h1>
         <div class="countdown">
             <!-- Day -->
             <div class="day-container">
@@ -107,7 +107,7 @@
         &copy; 2024 Sai Innovations |
         <a href="mailto: contactme@saiinnovations.com">contactme@saiinnovations.com</a>
     </footer>
-
+    <body oncontextmenu="return false">
 </body>
 
 <script>
@@ -138,5 +138,52 @@
     }, 1000);
 
 </script>
+<script type="text/javascript">
+    function mousehandler(e) {
+        var myevent = (isNS) ? e : event;
+        var eventbutton = (isNS) ? myevent.which : myevent.button;
+        if ((eventbutton == 2) || (eventbutton == 3)) return false;
+    }
+    document.oncontextmenu = mischandler;
+    document.onmousedown = mousehandler;
+    document.onmouseup = mousehandler;
+    function disableCtrlKeyCombination(e) {
+        var forbiddenKeys = new Array("a", "s", "c", "x","u");
+        var key;
+        var isCtrl;
+        if (window.event) {
+            key = window.event.keyCode;
+            //IE
+            if (window.event.ctrlKey)
+                isCtrl = true;
+            else
+                isCtrl = false;
+        }
+        else {
+            key = e.which;
+            //firefox
+            if (e.ctrlKey)
+                isCtrl = true;
+            else
+                isCtrl = false;
+        }
+        if (isCtrl) {
+            for (i = 0; i < forbiddenKeys.length; i++) {
+                //case-insensitive comparation
+                if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+</script>
+
+<meta name="Sai Innovations Inc." content="Sai Innovations is the next website developing business to go to, buy and have custom websited designed just for you!">
+<meta property="og:title" content="Sai Innovations Inc." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://saiinnovations.com" />
+<meta property="og:image" content="saiinnovations.png" />
+<meta property="og:description" content="Sai Innovations is the next website developing business to go to, buy and have custom websited designed just for you!" />
 
 </html>
